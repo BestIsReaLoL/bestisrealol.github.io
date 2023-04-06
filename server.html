@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft Sunucum</title>
+</head>
+<body>
+    <h1>Minecraft Sunucum</h1>
+    <p>Linke tıklayarak sunucumuzu ekleyebilirsiniz:</p>
+    <a href="#" onclick="addServer('123.45.67.89', '19132', 'SMP - HAMTAL')">Sunucuya giriş yap</a>
+
+    <script>
+        function addServer(ip, port, name) {
+            var server = {
+                name: name,
+                ip: ip,
+                port: port
+            };
+            var servers = JSON.parse(localStorage.getItem("mcpe:servers")) || [];
+            servers.push(server);
+            localStorage.setItem("mcpe:servers", JSON.stringify(servers));
+            alert("Sunucu başarıyla eklendi!");
+        }
+    </script>
+</body>
+</html>
